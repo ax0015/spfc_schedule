@@ -30,6 +30,8 @@ namespace schedule
                 {
                     command = new SqlCommand("CREATE DATABASE Schedule", _connection);
                     command.ExecuteNonQuery();
+                    command = new SqlCommand("ALTER DATABASE Schedule COLLATE Cyrillic_General_CI_AS", _connection);
+                    command.ExecuteNonQuery();
                     command = new SqlCommand(System.IO.File.ReadAllText(".\\CreateDB.txt"), _connection);
                     command.ExecuteNonQuery();
                     _connection.Close();

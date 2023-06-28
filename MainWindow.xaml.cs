@@ -49,7 +49,7 @@ namespace schedule
                         ScheduleDBConnection scheduleDBConnection = ScheduleDBConnection.GetInstance();
                         ComboBox lecturerComboBox = (ComboBox)cellStackPanel.Children[1];
                         // it still doesnt work
-                        if (lecturerComboBox.SelectedValue == "" || lecturerComboBox.SelectedValue == " " || lecturerComboBox.SelectedItem == "")
+                        if (lecturerComboBox.SelectedValue == null || lecturerComboBox.SelectedValue == "" || lecturerComboBox.SelectedValue == " " || lecturerComboBox.SelectedItem == "")
                         {
                             return;
                         }
@@ -65,7 +65,7 @@ namespace schedule
                                 subjectComboBox.Items.Add(subject.title);
                             }
                         }
-                        catch
+                        catch(Exception exception)
                         {
                             return;
                         }
